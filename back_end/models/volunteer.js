@@ -30,10 +30,9 @@ const volunteerSchema = new Schema({
 		required: true
 	},
 	preconditions: {
-		type: Object,
 		drivers_license: Boolean,
 		background_check: Boolean,
-		orientation_training: Boolean,
+		orientation_training: Array,
 		minimum_age: Number,
 		time_commitment: String,
 		other_requirements: String
@@ -41,6 +40,9 @@ const volunteerSchema = new Schema({
 	skills: Array,
 	hours_logged: Number, //starts at 0
 	description: String //Do we need this?
+},
+{
+	timestamps: true
 });
 
 const Volunteer = mongoose.model('Volunteer', volunteerSchema);

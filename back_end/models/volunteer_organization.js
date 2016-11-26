@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const positionSchema = require('./position').schema;
 
 const volunteerOrganizationSchema = new Schema({
 	name: {
@@ -13,7 +14,6 @@ const volunteerOrganizationSchema = new Schema({
 	address1: {
 		type: String,
 		required: true,
-		unique: true
 	},
 	address2: String,
 	city: {
@@ -53,8 +53,11 @@ const volunteerOrganizationSchema = new Schema({
 		type: String,
 		required: true
 	},
-	positions: Array, // embed position schema
+	positions: [positionSchema], // embed position schema
 	profile_pic_path: String
+},
+{
+	timestamps: true
 });
 
 const VolunteerOrganization = mongoose.model('VolunteerOrganization', volunteerOrganizationSchema);

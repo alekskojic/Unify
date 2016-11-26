@@ -15,15 +15,13 @@ const positionSchema = new Schema({
 		required: true
 	},
 	location: {
-		type: Object,
 		address1: {
 			type: String,
 			required: true
 		},
 		address2: String,
 		city: {
-			type: String,
-			required: true
+			type: String
 		},
 		province: {
 			type: String,
@@ -58,4 +56,11 @@ const positionSchema = new Schema({
 	skills: Array,
 	photo_path: String,
 	keywords: Array
+},
+{
+	timestamps: true
 })
+
+const Position = mongoose.model('Position', positionSchema);
+
+module.exports = Position;

@@ -108,3 +108,32 @@ router.put('/:id/:position_id', (req, res) => {
 		})
 });
 
+//DELETE endpoint for deleting a volunteer orgnization
+router.delete('/:id', (req, res) => {
+	VolunteerOrganization.findByIdAndRemove(req.params.id)
+		.then(volunteerOrganization => {
+			res.json(volunteerOrganization);
+		})
+		.catch(err => {
+			res.status(500).send(err);
+		})
+});
+
+//DELETE endpoint for deleting a position from a volunteer organization
+router.delete('/:id/:position_id', (req, res) => {
+	VolunteerOrganization.findById(req.params.id)
+		.then(volunteerOrganization => {
+			const position = volunteerOrganization.positions.id(req.params.position_id);
+			position.remove();
+			volunteerOrganization.save()
+				.then(volunteerOrganization => {
+					res.json(volunteerOrganization.positions);
+				})
+				.catch(err => {
+					res.status(500).send(err);
+				})
+		})
+});
+
+module.exports = router;
+

@@ -7,7 +7,7 @@ const Volunteer = require('./models/volunteer');
 const VolunteerOrganization = require('./models/volunteer_organization');
 const Position = require('./models/position');
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + './../front_end/Unify/build'));
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded

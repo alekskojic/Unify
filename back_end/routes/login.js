@@ -1,8 +1,8 @@
 const router    						= require('express').Router();
 const Volunteer 						= require('../models/volunteer');
 const VolunteerOrganization = require('../models/volunteer_organization');
-const bcrypt 								= require('bcryptjs');
-const jwt										= require('jsonwebtoken');
+const bcrypt 							= require('bcryptjs');
+const jwt								= require('jsonwebtoken');
 
 //POST endpoint for logging in and generating authTokens
 router.post('/', (req, res) => {

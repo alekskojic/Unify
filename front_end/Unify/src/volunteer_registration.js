@@ -19,7 +19,7 @@ class VolunteerRegistration extends Component {
   formSubmit(e) {
     e.preventDefault();
     axios
-      .post('http://localhost:8080/api/volunteers', this.state)
+      .post('/api/volunteers', this.state)
       .then( (res) =>{
         console.log(res);
       })

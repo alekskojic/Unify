@@ -5,13 +5,13 @@ import './App.css';
 class Registration extends Component {
   render() {
     return (
-    <div className="bootstrapVerticalCenter">
-			<div className="col-sm-6">
+    <div className="container registerOptions">
+			<div className="">
 				<Link to="/volunteer_registration"><img alt="Volunteer Persona" src="./images/Volunteer_Persona.png"/></Link>
 				<div className="squeezeParagraph">Are you a volunteer seeking out for volunteer opportunities?</div>
 			</div>
 			<br/>
-			<div className="col-sm-6">
+			<div className="">
 				<Link to="/organization_registration"><img alt="Organization Persona" src="./images/Organization_Persona.png"/></Link>
 				<div className="squeezeParagraph">Are you an organization seeking out for volunteers?</div>
 			</div>

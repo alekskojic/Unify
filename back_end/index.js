@@ -1,10 +1,12 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const PORT = process.env.PORT || 8080;
-const volunteers_routes = require('./routes/volunteer');
+const express 						 = require('express');
+const bodyParser 					 = require('body-parser');
+const jwt 							 = require('jsonwebtoken');
+const mongoose 						 = require('mongoose');
+const volunteers_routes 			 = require('./routes/volunteer');
 const volunteer_organizations_routes = require('./routes/volunteer_organization');
+const login_routes					 = require('./routes/login');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + './../front_end/Unify/build'));
 
@@ -22,6 +24,7 @@ db.once('open', () => {
 
 app.use('/api/volunteers', volunteers_routes);
 app.use('/api/volunteer_organizations', volunteer_organizations_routes);
+app.use('/api/login', login_routes);
 
 app.listen(PORT, () => {
 	console.log(`Server Started on http://localhost:${PORT}`);

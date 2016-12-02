@@ -1,5 +1,6 @@
-const router = require('express').Router();
-const Volunteer = require('../models/volunteers');
+const router 		= require('express').Router();
+const Volunteer = require('../models/volunteer');
+const bcrypt 		= require('bcryptjs');
 
 //GET endpoint to get all volunteers
 router.get('/', (req, res) => {
@@ -25,19 +26,25 @@ router.get('/:id', (req, res) => {
 
 //POST endpoint for saving a new volunteer
 router.post('/', (req, res) => {
-	Volunteer(req.body).save()
-		.then(volunteer => {
-			res.json(volunteer);
-		})
-		.catch(err => {
-			res.status(500).send(err);
-		})
+  bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(req.body.password, salt, (err, hash) => {
+				if (err) console.log(err);
+				req.body.password = hash;
+				Volunteer(req.body).save()
+					.then(volunteer => {
+						res.json(volunteer);
+					})
+					.catch(err => {
+						res.status(500).send(err);
+					})
+			})
+  })
 });
 
 //PUT endpoint for updating volunteers
 router.put('/:id', (req, res) => {
 	Volunteer.findByIdAndUpdate(req.params.id, req.body)
-		.then(car => {
+		.then(volunteer => {
 			res.json(volunteer);
 		})
 		.catch(err => {

@@ -15,14 +15,6 @@ class Header extends Component {
 	render() {
 		return (
 			<div>
-				<div className="navigationBar">
-					<Link to="/">
-						<img className="logo" alt="Unify" src="./images/Unify_Logo.png"/>
-					</Link>            
-					<Link to="/"><div className="links homeRight">Home</div></Link>
-					<Link to="/about"><div className="links aboutRight">About</div></Link>
-					<Link to="/contact"><div className="links contactRight">Contact</div></Link>
-				</div>
 				{this.props.children}
 			</div>             
 		)
@@ -35,10 +27,9 @@ ReactDOM.render((
 			<IndexRoute component={App} />
 			<Route path="/about" component={About} />
 			<Route path="/contact" component={Contact} />
-			<Route path="/registration" component={Registration}>
-				<Route path="/volunteer_registration" component={VolunteerRegistration} />
-				<Route path="/organization_registration" component={OrganizationRegistration} />
-			</Route>
+			<Route path="/registration" component={Registration} />
+			<Route path="/volunteer_registration" component={VolunteerRegistration} />
+			<Route path="/organization_registration" component={OrganizationRegistration} />
 		</Route>
 	</Router>
 ), document.getElementById('root'));

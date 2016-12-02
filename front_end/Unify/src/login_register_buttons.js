@@ -6,12 +6,8 @@ class LoginRegisterButtons extends Component {
   render() {
     return (
     <div>
-			<div>
-				<Link to="/sign_in"><button className="signInButton">Sign In</button></Link>
-			</div>
-			<div>
-				<Link to="/registration"><button className="registerButton">Create Account</button></Link>
-			</div>
+			<Link to="/registration"><button className="loginRegisterButtons registerButton spaceBetweenButtons">Create Account</button></Link>
+			<Link to="/sign_in"><button className="loginRegisterButtons signInButton">Sign In</button></Link>
 		</div>
     );
   }

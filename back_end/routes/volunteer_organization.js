@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const VolunteerOrganization = require('../models/volunteer_organization');
-const Position = require('../models/reviews');
+const Position = require('../models/position');
 
 //GET endpoint for getting all Volunteer Organization
 router.get('/', (req, res) => {

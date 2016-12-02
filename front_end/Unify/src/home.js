@@ -5,11 +5,28 @@ import LoginRegisterButtons from './login_register_buttons';
 class Home extends Component {
   render() {
     return (
-      <div className="verticalCenter">
-        <img className="offsetLogo" alt="Unify Logo" src="./images/Unify_Logo_withtext.png"/>
-        <LoginRegisterButtons/>
+      <div className="hero">
+        <div className="logoTitleContainer">
+          <img className="logo" src="/images/Unify_Logo.png"/>
+          <div className="title">
+            <div>
+              UNIFY
+            </div>
+            <div className="subTitle">
+              Volunteers and Organizations<br/>
+              <div className="underSubTitle">Connected | Unified | United</div>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div className="headline">
+          Stay Connected.<br/>
+          Make a Difference Socially.
+        </div>
+        <div className="loginRegister">
+          <LoginRegisterButtons/>
+        </div>
       </div>
-
     );
   }
 }

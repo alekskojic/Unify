@@ -26,18 +26,19 @@ router.get('/:id', (req, res) => {
 
 //POST endpoint for saving a new volunteer
 router.post('/', (req, res) => {
+	console.log(req.body)
   bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(req.body.password, salt, (err, hash) => {
-				if (err) console.log(err);
-				req.body.password = hash;
-				Volunteer(req.body).save()
-					.then(volunteer => {
-						res.json(volunteer);
-					})
-					.catch(err => {
-						res.status(500).send(err);
-					})
-			})
+    bcrypt.hash(req.body.password, salt, (err, hash) => {
+			if (err) console.log(err);
+			req.body.password = hash;
+			Volunteer(req.body).save()
+				.then(volunteer => {
+					res.json(volunteer);
+				})
+				.catch(err => {
+					res.status(500).send(err);
+				})
+		})
   })
 });
 

@@ -2,33 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const volunteerSchema = new Schema({
-	first_name: {
-		type: String,
-		required: true
-	},
-	last_name: {
-		type: String,
-		required: true
-	},
+	first_name: String,
+	last_name: String,
 	email: {
 		type: String,
-		required: true,
 		unique: true
 	},
-	password: {
-		type: String,
-		required: true
-	},
-	core_values: {
-		type: Array,
-		required: true
-	},
+	password: String,
+	core_values: Array,
 	experience: Array,
 	profile_pic_path: String,
-	location_pref: {
-		type: Array,
-		required: true
-	},
+	location_pref: Array,
 	preconditions: {
 		drivers_license: Boolean,
 		background_check: Boolean,

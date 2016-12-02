@@ -84,7 +84,7 @@ class VolunteerRegistration extends Component {
           <input 
             onChange={this.txtFieldChange}
             className="fieldOrButton inputField" 
-            type="text" 
+            type="password" 
             name="password" 
             placeholder="Password"/>
           <br/>
@@ -92,7 +92,7 @@ class VolunteerRegistration extends Component {
           <input 
             onChange={this.txtFieldChange}
             className="fieldOrButton inputField" 
-            type="text" 
+            type="password" 
             name="retype_password" 
             placeholder="Retype Password"/>
           <br/>

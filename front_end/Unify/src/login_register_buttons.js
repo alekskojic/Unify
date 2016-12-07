@@ -5,12 +5,14 @@ import './App.css';
 class LoginRegisterButtons extends Component {
   render() {
     return (
-    <div>
+    <div className="loginRegister">
 			<Link to="/registration"><button className="loginRegisterButtons registerButton spaceBetweenButtons">Create Account</button></Link>
-			<Link to="/sign_in"><button className="loginRegisterButtons signInButton">Sign In</button></Link>
+      <Link to="/sign_in"><button className="loginRegisterButtons signInButton">Sign In</button></Link>
 		</div>
     );
   }
 }
 
 export default LoginRegisterButtons;
+
+//<Link to="/sign_in"><button className="loginRegisterButtons signInButton">Sign In</button></Link>

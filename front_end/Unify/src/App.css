@@ -8,7 +8,7 @@
 .hero {
   background: url('../public/images/hero.jpg');
   background-size: cover;
-  background-position: 15% 50%;
+  background-position: center;
   width: 100%;
   height: 700px;
 }
@@ -17,7 +17,7 @@
   display: inline-block;
   position: relative;
   top: 17px;
-  left: 13.9%
+  left: 10%;
 }
 
 .logo { 
@@ -33,57 +33,72 @@
   top: -3px;
   padding: 5px;
   color: #4AADCD;
-  font-size: 21px;
-  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 30px;
 }
 
 .subTitle {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .underSubTitle {
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .headline {
   display: inline-block;
   position: relative;
   padding: 5px;
-  margin-left: 14.03%;
+  margin-left: 10%;
   margin-top: 230px;
   font-size: 41px;
   color: #4AADCD;
-  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .loginRegister {
+  position: relative;
+  top: 25px;
   display: flex;
   justify-content: center;
-  position: relative;
-  margin-top: 70px;
-  margin-left: 22%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  flex-flow: row wrap; 
 }
 
 .loginRegisterButtons {
+  margin: 25px;
   height: 58px;
   width: 210px;
   border: none;
   font-size: 18px;
-  box-shadow: 2px 2px 10px #888888;
-}
-
-.spaceBetweenButtons {
-  margin-right: 25px;
-  margin-bottom: 25px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
 }
 
 .registerOptions {
-  position: relative;
-  top: 200px;
-  justify-content: space-around;
+  display: flex;
+  background: url('../public/images/unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.registerOption {
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
+  padding: 10px;
+  margin: 10%;
+}
+
+.registerOption:hover {
+  opacity: 0.5;
+}
+
+.volunteerOptionImage {
+  margin: 0 18.5px;
+}
+
+.organizationOptionImage {
+  margin: 0 0 10px 0;
 }
 
 .offsetLogo {
@@ -129,12 +144,11 @@
 }
 
 .fieldOrButton {
-  height: 57px;
-  width: 310px;
-  border-radius: 55px;
+  height: 58px;
+  width: 210px;
   border: none;
   font-size: 18px;
-  box-shadow: 2px 2px 10px #888888;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);;
 }
 
 .fieldOrButton:focus {
@@ -168,18 +182,18 @@
 
 .halfInputField {
   margin: 0 2.5px;
-  padding: 0 0 0 22.5px;
+  padding: 0 22.5px;
   width: 127.5px;
-  background-color: #E5E5DF;
+  background-color: white;
   border: none;
   color: black;
   font-size: 18px;
 }
 
 .inputField {
-  padding: 0 0 0 22.5px;
+  padding: 0 10px;
   width: 287.5px;
-  background-color: #E5E5DF;
+  background-color: white;
   color: black;
   font-size: 18px;
 }
@@ -189,6 +203,11 @@
 }
 
 .fieldLabel {
-  padding-left: 22.5px;
+  padding-left: 10px;
   font-size: 13px;
 }
+
+button:hover {
+  opacity: 0.5;
+}
+

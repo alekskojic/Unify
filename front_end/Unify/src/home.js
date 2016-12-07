@@ -23,9 +23,7 @@ class Home extends Component {
           Stay Connected.<br/>
           Make a Difference Socially.
         </div>
-        <div className="loginRegister">
-          <LoginRegisterButtons/>
-        </div>
+        <LoginRegisterButtons/>
       </div>
     );
   }

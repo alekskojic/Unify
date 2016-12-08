@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
 import './App.css';
 import axios from 'axios';
+import Navbar from './navbar';
 
 class VolunteerRegistration extends Component {
   constructor() {
@@ -49,57 +50,55 @@ class VolunteerRegistration extends Component {
   }
   render() {
     return (
-      <div className="underHeader helpingHand">
-        <form onSubmit={this.formSubmit} className="createVolunteerForm">
-          <div className="inline">
-            <div>
-              <span className="fieldLabel">First name:</span>
-              <input 
-                onChange={this.txtFieldChange}
-                className="fieldOrButton halfInputField" 
-                type="text" 
-                name="first_name" 
-                placeholder="First Name"/>
-            </div>
-            <div>
-              <span className="fieldLabel">Last name:</span>
-              <input 
-                onChange={this.txtFieldChange}
-                className="fieldOrButton halfInputField" 
-                type="text" 
-                name="last_name" 
-                placeholder="Last Name"/>
-            </div>
-          </div>
-          <br/>
-          <span className="fieldLabel">Email:</span>
-          <input 
-            onChange={this.txtFieldChange}
-            className="fieldOrButton inputField" 
-            type="text" 
-            name="email" 
-            placeholder="Email"/>
-          <br/>
-          <span className="fieldLabel">Password:</span>
-          <input 
-            onChange={this.txtFieldChange}
-            className="fieldOrButton inputField" 
-            type="password" 
-            name="password" 
-            placeholder="Password"/>
-          <br/>
-          <span className="fieldLabel">Retype Password:</span>
-          <input 
-            onChange={this.txtFieldChange}
-            className="fieldOrButton inputField" 
-            type="password" 
-            name="retype_password" 
-            placeholder="Retype Password"/>
-          <br/>
-          <button 
-            className="fieldOrButton registerButton" 
-            type="submit">Create Account</button>
-        </form>
+      <div className="helpingHand">
+        <Navbar/>
+        <div className="underHeader">
+          <form onSubmit={this.formSubmit} className="createVolunteerForm">
+            <span className="fieldLabel">First name:</span>
+            <input 
+              onChange={this.txtFieldChange}
+              className="fieldOrButton inputField" 
+              type="text" 
+              name="first_name" 
+              placeholder="First Name"/>
+            <br/>
+            <span className="fieldLabel">Last name:</span>
+            <input 
+              onChange={this.txtFieldChange}
+              className="fieldOrButton inputField" 
+              type="text" 
+              name="last_name" 
+              placeholder="Last Name"/>
+            <br/>
+            <span className="fieldLabel">Email:</span>
+            <input 
+              onChange={this.txtFieldChange}
+              className="fieldOrButton inputField" 
+              type="text" 
+              name="email" 
+              placeholder="Email"/>
+            <br/>
+            <span className="fieldLabel">Password:</span>
+            <input 
+              onChange={this.txtFieldChange}
+              className="fieldOrButton inputField" 
+              type="password" 
+              name="password" 
+              placeholder="Password"/>
+            <br/>
+            <span className="fieldLabel">Retype Password:</span>
+            <input 
+              onChange={this.txtFieldChange}
+              className="fieldOrButton inputField" 
+              type="password" 
+              name="retype_password" 
+              placeholder="Retype Password"/>
+            <br/>
+            <button 
+              className="fieldOrButton registerButton" 
+              type="submit">Create Account</button>
+          </form>
+        </div>
       </div>
     );
   }

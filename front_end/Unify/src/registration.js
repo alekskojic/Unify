@@ -8,7 +8,7 @@ class Registration extends Component {
     return (
     <div>
 			<Navbar/>
-			<div className="registerOptions">
+			<div className="underHeader registerOptions">
 				<div className="registerOption">
 					<Link to="/volunteer_registration"><img className="volunteerOptionImage" alt="Volunteer Persona" src="./images/Volunteer_Persona.png"/></Link>
 					<div className="squeezeParagraph">Are you a volunteer seeking out for volunteer opportunities?</div>

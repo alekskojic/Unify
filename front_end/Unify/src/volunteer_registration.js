@@ -49,7 +49,7 @@ class VolunteerRegistration extends Component {
         .then( (res) => {
           console.log(res);
           localStorage.setItem("email", this.state.volunteer_info.email);
-          window.location = '/core_values_volunteer';
+          browserHistory.push("/path-to-link");
         })
     }
   }

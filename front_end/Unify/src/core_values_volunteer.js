@@ -9,6 +9,7 @@ class CoreValuesVolunteer extends Component {
     super();
     this.state = {
       core_values: [],
+			missing_core_value: true,
 			highlighted: [
 				'Advocacy & Human Rights', false,
 				'Animals', false,
@@ -48,19 +49,16 @@ class CoreValuesVolunteer extends Component {
   
   updateCoreValues(e) {
     e.preventDefault();
-    let missingField = false;
-    for (let key in this.state) {
-      if (!this.state[key]) {
-        missingField = true;
-        console.log('missing field');
-      }
-    }
-    if (!missingField) {
+    for (let i = 1; i <= this.state.core_values.length - 1; i += 2)
+    if (!this.state.missing_core_value) {
       axios
-        .put('/api/volunteers', this.state)
-        .then( (res) => {
-          console.log(res);
-        })
+        .get('/api/volunteers')
+  			.then((res) => {
+    			console.log(res);
+  			})
+  			.catch((err) => {
+    			console.log(err);
+  			});
     }
   }
 
@@ -77,9 +75,7 @@ class CoreValuesVolunteer extends Component {
     }
 		for (let j = 0; j <= highlighted.length; j++) {
 			if (e.target.id == highlighted[j]) {
-				console.log('found!!!' + j);
 				highlighted[j+1] = !highlighted[j+1];
-				console.log(highlighted);
 				this.setState({highlighted: highlighted});
 			}
 		}
@@ -149,7 +145,10 @@ class CoreValuesVolunteer extends Component {
               </tr>
             </table>
 						<br/>
-            <button 
+            <span className={!this.state.missing_core_value ? 'showWarning' : 'hideWarning'} >
+              Please choose at least one core value!
+            </span>
+						<button 
               className="fieldOrButton registerButton" 
               onClick={this.updateCoreValues}>
                 Apply

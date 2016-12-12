@@ -48,6 +48,7 @@ class VolunteerRegistration extends Component {
         .post('/api/volunteers', this.state.volunteer_info)
         .then( (res) => {
           console.log(res);
+          localStorage.setItem("email", this.state.volunteer_info.email);
           location.href = '/core_values_volunteer';
         })
     }

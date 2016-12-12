@@ -36,3 +36,7 @@ app.listen(PORT, () => {
 	console.log(`Server Started on http://localhost:${PORT}`);
 	console.log('Press CTRL + C to stop server');
 });
+
+app.get('*', (req, res) => {
+    res.sendFile('index.html',{root: __dirname + './../front_end/Unify/build'});
+});

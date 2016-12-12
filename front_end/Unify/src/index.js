@@ -6,7 +6,8 @@ import About from './about';
 import Contact from './contact';
 import VolunteerRegistration from './volunteer_registration';
 import OrganizationRegistration from './organization_registration';
-import Registration from './registration'
+import Registration from './registration';
+import CoreValuesVolunteer from './core_values_volunteer';
 import './index.css';
 
 
@@ -30,6 +31,7 @@ ReactDOM.render((
 			<Route path="/registration" component={Registration} />
 			<Route path="/volunteer_registration" component={VolunteerRegistration} />
 			<Route path="/organization_registration" component={OrganizationRegistration} />
+			<Route path="/core_values_volunteer" component={CoreValuesVolunteer} />
 		</Route>
 	</Router>
 ), document.getElementById('root'));

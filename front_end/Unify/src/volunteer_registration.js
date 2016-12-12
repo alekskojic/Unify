@@ -8,51 +8,79 @@ class VolunteerRegistration extends Component {
   constructor() {
     super();
     this.state = {
-      first_name: null,
-      last_name: null,
-      email: null,
-      password: null
+      volunteer_info: {
+        first_name: null,
+        last_name: null,
+        email: null,
+        password: null
+      },
+      retype_password: null,
+      missing_field: false,
+      matching_passwords: true
     }
 
     this.formSubmit = this.formSubmit.bind(this);
     this.txtFieldChange = this.txtFieldChange.bind(this);
   }
+  
   formSubmit(e) {
     e.preventDefault();
-    axios
-      .post('/api/volunteers', this.state)
-      .then( (res) =>{
-        console.log(res);
-      })
+    this.setState({missing_field: false});
+    let missingField = false;
+    let matchingPasswords = true;
+    let volunteerInfo = this.state.volunteer_info;
+    for (let key in volunteerInfo) {
+      if (!volunteerInfo[key]) {
+        this.setState({missing_field: true});
+        missingField = true;
+      }
+    }
+    if (volunteerInfo.password === this.state.retype_password) {
+      this.setState({matching_passwords: true});
+      matchingPasswords = true;
+    } else {
+      this.setState({matching_passwords: false});
+      matchingPasswords = false;
+    }
+    if (!missingField && matchingPasswords) {
+      location.href = '/core_values_volunteer'; 
+      axios
+        .post('/api/volunteers', this.state.volunteer_info)
+        .then( (res) => {
+          console.log(res);
+          location.href = '/core_values_volunteer';
+        })
+    }
   }
 
-  txtFieldChange(e){
-    if(e.target.name === "first_name"){
-      this.setState({
-        first_name: e.target.value
-      })
+  txtFieldChange(e) {
+    let volunteerInfo = this.state.volunteer_info;
+    if (e.target.name === "first_name") {
+      volunteerInfo.first_name = e.target.value;
+      this.setState({volunteer_info: volunteerInfo});
     }
-    else if(e.target.name === "last_name"){
-      this.setState({
-        last_name: e.target.value
-      });
+    else if (e.target.name === "last_name") {
+      volunteerInfo.last_name = e.target.value;
+      this.setState({volunteer_info: volunteerInfo});
     }
-    else if(e.target.name === "email"){
-      this.setState({
-        email: e.target.value
-      });
+    else if (e.target.name === "email") {
+      volunteerInfo.email = e.target.value;
+      this.setState({volunteer_info: volunteerInfo});
     }
-    else if(e.target.name === "password"){
-      this.setState({
-        password: e.target.value
-      });
+    else if (e.target.name === "password") {
+      volunteerInfo.password = e.target.value;
+      this.setState({volunteer_info: volunteerInfo});
+    }
+    else if (e.target.name === "retype_password") {
+      this.setState({retype_password: e.target.value});
     }
   }
+
   render() {
     return (
-      <div className="helpingHand">
+      <div>
         <Navbar/>
-        <div className="underHeader">
+        <div className="underHeader registerFields">
           <form onSubmit={this.formSubmit} className="createVolunteerForm">
             <span className="fieldLabel">First name:</span>
             <input 
@@ -94,9 +122,17 @@ class VolunteerRegistration extends Component {
               name="retype_password" 
               placeholder="Retype Password"/>
             <br/>
+            <span className={this.state.missing_field ? 'showWarning' : 'hideWarning'} >
+              One or more fields are missing! 
+            </span>
+            <span className={!this.state.matching_passwords ? 'showWarning' : 'hideWarning'} >
+              Passwords do not match!
+            </span>
             <button 
               className="fieldOrButton registerButton" 
-              type="submit">Create Account</button>
+              type="submit">
+                Create Account
+            </button>
           </form>
         </div>
       </div>

@@ -23,7 +23,7 @@ class Header extends Component {
 }
 
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
 		<Route path="/" component={Header}>
 			<IndexRoute component={App} />
 			<Route path="/about" component={About} />

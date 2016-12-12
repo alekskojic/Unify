@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory, Link} from 'react-router';
 import './App.css';
 import axios from 'axios';
 import Navbar from './navbar';
@@ -49,7 +49,7 @@ class VolunteerRegistration extends Component {
         .then( (res) => {
           console.log(res);
           localStorage.setItem("email", this.state.volunteer_info.email);
-          browserHistory.push("/path-to-link");
+          hashHistory.push("/core_values_volunteer");
         })
     }
   }

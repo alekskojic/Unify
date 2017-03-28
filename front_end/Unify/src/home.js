@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginRegisterButtons from './login_register_buttons';
 
+
 class Home extends Component {
   render() {
     return (

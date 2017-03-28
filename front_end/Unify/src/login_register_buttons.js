@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
 import './App.css';
 
+
 class LoginRegisterButtons extends Component {
   render() {
     return (

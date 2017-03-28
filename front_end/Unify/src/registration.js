@@ -3,6 +3,7 @@ import {Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
 import './App.css';
 import Navbar from './navbar';
 
+
 class Registration extends Component {
   render() {
     return (

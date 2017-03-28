@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const positionSchema = require('./position').schema;
 
+
 const volunteerOrganizationSchema = new Schema({
 	name: {
 		type: String,

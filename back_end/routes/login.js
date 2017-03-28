@@ -4,6 +4,7 @@ const VolunteerOrganization = require('../models/volunteer_organization');
 const bcrypt 							= require('bcryptjs');
 const jwt								= require('jsonwebtoken');
 
+
 //POST endpoint for logging in and generating authTokens
 router.post('/', (req, res) => {
 	let email = req.body.email;

@@ -2,6 +2,7 @@ const router 		= require('express').Router();
 const Volunteer = require('../models/volunteer');
 const bcrypt 		= require('bcryptjs');
 
+
 //GET endpoint to get all volunteers
 router.get('/', (req, res) => {
 	Volunteer.find({})
